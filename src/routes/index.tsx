@@ -2,6 +2,7 @@ import React, { FunctionComponent, lazy, Suspense } from 'react';
 import { Spin } from 'antd';
 import { Routes, Route } from 'react-router-dom';
 
+const MainLayout = lazy(() => import('../layouts/Main'));
 const Home = lazy(() => import('./Home'));
 
 const Router: FunctionComponent = () => (
@@ -10,10 +11,19 @@ const Router: FunctionComponent = () => (
       path="/"
       element={
         <Suspense fallback={<Spin />}>
-          <Home />
+          <MainLayout />
         </Suspense>
       }
-    />
+    >
+      <Route
+        path=""
+        element={
+          <Suspense fallback={<Spin />}>
+            <Home />
+          </Suspense>
+        }
+      />
+    </Route>
   </Routes>
 );
 
