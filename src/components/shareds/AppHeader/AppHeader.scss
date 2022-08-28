@@ -1,0 +1,67 @@
+@import '../../../styles/shareds.scss';
+
+$this: 'app-header';
+
+header {
+  background: $gray-12;
+  &.component {
+    &.is-#{$this} {
+      .#{$this} {
+        &--columns {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          &__item {
+            padding: 1rem 0;
+            width: 33%;
+            &.is-logo {
+              a {
+                display: block;
+                img {
+                  display: block;
+                  height: 2.5rem;
+                  width: auto;
+                }
+              }
+            }
+            &.is-menu {
+              font-size: 1rem;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: flex-end;
+              a {
+                margin-left: 1rem;
+                color: $gray-2;
+                text-decoration: none;
+                &:hover {
+                  color: $gray-6;
+                }
+              }
+            }
+            &.is-search {
+              margin-left: 1rem;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              .ant-input {
+                &-prefix {
+                  margin-right: 0.5rem;
+                }
+                &-affix-wrapper {
+                  max-width: 100%;
+                  width: 24rem;
+                  box-shadow: inset 0 0 0.5rem $gray-13;
+                  border-radius: 0.25rem;
+                }
+                &::placeholder {
+                  color: $gray-2;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
